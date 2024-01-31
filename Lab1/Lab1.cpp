@@ -128,6 +128,7 @@ int main() {
     std::cout << std::endl;
 
     searchable = 0.3f;
+    //поиск элемента в векторе с помощью алгоритма std::binary_search
     bool found = std::binary_search(array4.begin(), array4.end(), searchable);
     if (found)
         std::cout << "Элемент " << searchable << " найден в векторе" << std::endl;
