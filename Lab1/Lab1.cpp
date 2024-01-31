@@ -23,7 +23,7 @@ void swap(float& a, float& b) {
 
 //вспомогательная функция для разделения массива на две части относительно выбранного опорного элемента
 int partition(float arr[], int low, int high) {
-    float pivot = arr[high]; //за опорный элемент берется последний элемент массива
+    float pivot = arr[high]; //опорный элемент
     int i = low - 1;
 
     for (int j = low; j <= high - 1; j++) {
