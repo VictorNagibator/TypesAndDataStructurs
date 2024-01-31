@@ -1,9 +1,9 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <windows.h>
 
-//функция сортировки вставками (1-ое задание)
+//С„СѓРЅРєС†РёСЏ СЃРѕСЂС‚РёСЂРѕРІРєРё РІСЃС‚Р°РІРєР°РјРё (1-РѕРµ Р·Р°РґР°РЅРёРµ)
 void insertionSort(float arr[], int n) {
     for (int i = 1; i < n; i++) {
         int j;
@@ -14,16 +14,16 @@ void insertionSort(float arr[], int n) {
     }
 }
 
-//вспомогательная функция для обмена элементов местами
+//РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅР°СЏ С„СѓРЅРєС†РёСЏ РґР»СЏ РѕР±РјРµРЅР° СЌР»РµРјРµРЅС‚РѕРІ РјРµСЃС‚Р°РјРё
 void swap(float& a, float& b) {
     float temp = a;
     a = b;
     b = temp;
 }
 
-//вспомогательная функция для разделения массива на две части относительно выбранного опорного элемента
+//РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅР°СЏ С„СѓРЅРєС†РёСЏ РґР»СЏ СЂР°Р·РґРµР»РµРЅРёСЏ РјР°СЃСЃРёРІР° РЅР° РґРІРµ С‡Р°СЃС‚Рё РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РІС‹Р±СЂР°РЅРЅРѕРіРѕ РѕРїРѕСЂРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
 int partition(float arr[], int low, int high) {
-    float pivot = arr[high]; //за опорный элемент берется последний элемент массива
+    float pivot = arr[high]; //Р·Р° РѕРїРѕСЂРЅС‹Р№ СЌР»РµРјРµРЅС‚ Р±РµСЂРµС‚СЃСЏ РїРѕСЃР»РµРґРЅРёР№ СЌР»РµРјРµРЅС‚ РјР°СЃСЃРёРІР°
     int i = low - 1;
 
     for (int j = low; j <= high - 1; j++) {
@@ -37,7 +37,7 @@ int partition(float arr[], int low, int high) {
     return i + 1;
 }
 
-//функция быстрой сортировки Хоара (2-ое задание)
+//С„СѓРЅРєС†РёСЏ Р±С‹СЃС‚СЂРѕР№ СЃРѕСЂС‚РёСЂРѕРІРєРё РҐРѕР°СЂР° (2-РѕРµ Р·Р°РґР°РЅРёРµ)
 void quickSort(float arr[], int low, int high) {
     if (low < high) {
         int pi = partition(arr, low, high);
@@ -47,20 +47,20 @@ void quickSort(float arr[], int low, int high) {
     }
 }
 
-//функция бинарного поиска (3-е задание)
+//С„СѓРЅРєС†РёСЏ Р±РёРЅР°СЂРЅРѕРіРѕ РїРѕРёСЃРєР° (3-Рµ Р·Р°РґР°РЅРёРµ)
 int binarySearch(float arr[], int low, int high, float searchable) {
     while (low <= high) {
-        int mid = low + (high - low) / 2; //смотрим относительно середины массива
+        int mid = low + (high - low) / 2; //СЃРјРѕС‚СЂРёРј РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ СЃРµСЂРµРґРёРЅС‹ РјР°СЃСЃРёРІР°
 
         if (arr[mid] == searchable)
-            return mid;  //элемент найден, возвращаем его индекс
+            return mid;  //СЌР»РµРјРµРЅС‚ РЅР°Р№РґРµРЅ, РІРѕР·РІСЂР°С‰Р°РµРј РµРіРѕ РёРЅРґРµРєСЃ
         else if (arr[mid] < searchable)
-            low = mid + 1;  //искомый элемент находится в правой половине
+            low = mid + 1;  //РёСЃРєРѕРјС‹Р№ СЌР»РµРјРµРЅС‚ РЅР°С…РѕРґРёС‚СЃСЏ РІ РїСЂР°РІРѕР№ РїРѕР»РѕРІРёРЅРµ
         else
-            high = mid - 1;  //искомый элемент находится в левой половине
+            high = mid - 1;  //РёСЃРєРѕРјС‹Р№ СЌР»РµРјРµРЅС‚ РЅР°С…РѕРґРёС‚СЃСЏ РІ Р»РµРІРѕР№ РїРѕР»РѕРІРёРЅРµ
     }
 
-    return -1;  //элемент не найден
+    return -1;  //СЌР»РµРјРµРЅС‚ РЅРµ РЅР°Р№РґРµРЅ
 }
 
 int main() {
@@ -69,38 +69,38 @@ int main() {
 
     const int size = 5;
 
-    //1-ое задание
+    //1-РѕРµ Р·Р°РґР°РЅРёРµ
     float array1[] = { 12.5f, 11.0f, 13.2f, 5.8f, 6.4f };
-    std::cout << "Задание 1:" << std::endl << "Изначальный массив: ";
+    std::cout << "Р—Р°РґР°РЅРёРµ 1:" << std::endl << "РР·РЅР°С‡Р°Р»СЊРЅС‹Р№ РјР°СЃСЃРёРІ: ";
     for (int i = 0; i < size; i++)
         std::cout << array1[i] << " ";
     std::cout << std::endl;
 
     insertionSort(array1, size);
 
-    std::cout << "Отсортированный массив после сортировки вставками: ";
+    std::cout << "РћС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ РјР°СЃСЃРёРІ РїРѕСЃР»Рµ СЃРѕСЂС‚РёСЂРѕРІРєРё РІСЃС‚Р°РІРєР°РјРё: ";
     for (int i = 0; i < size; i++)
         std::cout << array1[i] << " ";
     std::cout << std::endl << std::endl;
 
-    //2-ое задание
+    //2-РѕРµ Р·Р°РґР°РЅРёРµ
     float array2[] = { -5.4f, 6.2f, 122.0f, 0.1f, -10.5f };
-    std::cout << "Задание 2:" << std::endl << "Изначальный массив: ";
+    std::cout << "Р—Р°РґР°РЅРёРµ 2:" << std::endl << "РР·РЅР°С‡Р°Р»СЊРЅС‹Р№ РјР°СЃСЃРёРІ: ";
     for (int i = 0; i < size; i++)
         std::cout << array2[i] << " ";
     std::cout << std::endl;
 
     quickSort(array2, 0, size - 1);
 
-    std::cout << "Отсортированный массив после быстрой сортировки: ";
+    std::cout << "РћС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ РјР°СЃСЃРёРІ РїРѕСЃР»Рµ Р±С‹СЃС‚СЂРѕР№ СЃРѕСЂС‚РёСЂРѕРІРєРё: ";
     for (int i = 0; i < size; i++)
         std::cout << array2[i] << " ";
     std::cout << std::endl << std::endl;
 
-    //3-е задание
+    //3-Рµ Р·Р°РґР°РЅРёРµ
     float array3[] = { -4.8f, -1.5f, 0.4f, 4.5f, 5.4f };
     float searchable = 4.5f;
-    std::cout << "Задание 3:" << std::endl << "Изначальный массив: ";
+    std::cout << "Р—Р°РґР°РЅРёРµ 3:" << std::endl << "РР·РЅР°С‡Р°Р»СЊРЅС‹Р№ РјР°СЃСЃРёРІ: ";
     for (int i = 0; i < size; i++)
         std::cout << array3[i] << " ";
     std::cout << std::endl;
@@ -108,21 +108,21 @@ int main() {
     int indexOfSearchable = binarySearch(array3, 0, size - 1, searchable);
 
     if (indexOfSearchable != -1)
-        std::cout << "Элемент " << searchable << " находится по индексу " << indexOfSearchable << std::endl << std::endl;
+        std::cout << "Р­Р»РµРјРµРЅС‚ " << searchable << " РЅР°С…РѕРґРёС‚СЃСЏ РїРѕ РёРЅРґРµРєСЃСѓ " << indexOfSearchable << std::endl << std::endl;
     else
-        std::cout << "Элемента " << searchable << " нет в массиве!" << std::endl << std::endl;
+        std::cout << "Р­Р»РµРјРµРЅС‚Р° " << searchable << " РЅРµС‚ РІ РјР°СЃСЃРёРІРµ!" << std::endl << std::endl;
 
-    //4-ое задание
+    //4-РѕРµ Р·Р°РґР°РЅРёРµ
     std::vector<float> array4 = { 10.2f, -5.9f, 0.3f, -2.2f, -11.0f };
-    std::cout << "Задание 4:" << std::endl << "Изначальный массив: ";
+    std::cout << "Р—Р°РґР°РЅРёРµ 4:" << std::endl << "РР·РЅР°С‡Р°Р»СЊРЅС‹Р№ РјР°СЃСЃРёРІ: ";
     for (float num : array4)
         std::cout << num << " ";
     std::cout << std::endl;
 
-    //сортировка вектора с помощью алгоритма std::sort
+    //СЃРѕСЂС‚РёСЂРѕРІРєР° РІРµРєС‚РѕСЂР° СЃ РїРѕРјРѕС‰СЊСЋ Р°Р»РіРѕСЂРёС‚РјР° std::sort
     std::sort(array4.begin(), array4.end());
 
-    std::cout << "Отсортированный массив после сортировки std::sort: ";
+    std::cout << "РћС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ РјР°СЃСЃРёРІ РїРѕСЃР»Рµ СЃРѕСЂС‚РёСЂРѕРІРєРё std::sort: ";
     for (float num : array4)
         std::cout << num << " ";
     std::cout << std::endl;
@@ -130,9 +130,9 @@ int main() {
     searchable = 0.3f;
     bool found = std::binary_search(array4.begin(), array4.end(), searchable);
     if (found)
-        std::cout << "Элемент " << searchable << " найден в векторе" << std::endl;
+        std::cout << "Р­Р»РµРјРµРЅС‚ " << searchable << " РЅР°Р№РґРµРЅ РІ РІРµРєС‚РѕСЂРµ" << std::endl;
     else
-        std::cout << "Элемента " << searchable << " нет в векторе!" << std::endl;
+        std::cout << "Р­Р»РµРјРµРЅС‚Р° " << searchable << " РЅРµС‚ РІ РІРµРєС‚РѕСЂРµ!" << std::endl;
 
     return 0;
 }
