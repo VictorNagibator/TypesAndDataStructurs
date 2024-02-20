@@ -75,7 +75,7 @@ static void printUntilEven(MyQueue& queue) //выводит элементы о�
 {
 	bool isNoEven = true;
 	std::cout << "Вывод элементов очереди до первого четного:" << std::endl;
-	while (queue.front() != -1)
+	while (!queue.isEmpty())
 	{
 		int temp = queue.front();
 		std::cout << temp << " ";
@@ -90,7 +90,7 @@ static void printUntilEven(MyQueue& queue) //выводит элементы о�
 	}
 
 	if (isNoEven)
-		std::cout << "Элементы в очереди закончились, в ней нет четных элементов!" << std::endl;
+		std::cout << std::endl << "Элементы в очереди закончились, в ней нет четных элементов!" << std::endl;
 }
 
 static void printUntilEven(std::queue<int>& queue) //аналогичная функция, но для std::queue
