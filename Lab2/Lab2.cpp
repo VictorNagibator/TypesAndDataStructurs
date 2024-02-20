@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <queue>
 #include <windows.h>
 
@@ -11,19 +11,19 @@ public:
 	void store(int element);
 	int retrieve();
 
-	int front() const; //возвращает первый элемент очереди, не извлекая его
-	bool isEmpty() const; //проверка на пустоту очереди
+	int front() const; //РІРѕР·РІСЂР°С‰Р°РµС‚ РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ РѕС‡РµСЂРµРґРё, РЅРµ РёР·РІР»РµРєР°СЏ РµРіРѕ
+	bool isEmpty() const; //РїСЂРѕРІРµСЂРєР° РЅР° РїСѓСЃС‚РѕС‚Сѓ РѕС‡РµСЂРµРґРё
 private:
-	int *queue; //динамический массив, отведенный под очередь
-	int rpos = 0, spos = 0; //rpos - голова очереди, spos - хвост очереди
+	int *queue; //РґРёРЅР°РјРёС‡РµСЃРєРёР№ РјР°СЃСЃРёРІ, РѕС‚РІРµРґРµРЅРЅС‹Р№ РїРѕРґ РѕС‡РµСЂРµРґСЊ
+	int rpos = 0, spos = 0; //rpos - РіРѕР»РѕРІР° РѕС‡РµСЂРµРґРё, spos - С…РІРѕСЃС‚ РѕС‡РµСЂРµРґРё
 
-	int maxNum; //максимальное количество элементов в очереди
+	int maxNum; //РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ РІ РѕС‡РµСЂРµРґРё
 };
 
 MyQueue::MyQueue(int n)
 {
-	queue = new int[n]; //выделяем динамически память под очередь
-	maxNum = n; //и запоминаем максимальное количество элементов
+	queue = new int[n]; //РІС‹РґРµР»СЏРµРј РґРёРЅР°РјРёС‡РµСЃРєРё РїР°РјСЏС‚СЊ РїРѕРґ РѕС‡РµСЂРµРґСЊ
+	maxNum = n; //Рё Р·Р°РїРѕРјРёРЅР°РµРј РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ
 }
 
 MyQueue::~MyQueue()
@@ -31,11 +31,11 @@ MyQueue::~MyQueue()
 	delete[] queue; 
 }
 
-void MyQueue::store(int element) //помещаем элемент в очередь
+void MyQueue::store(int element) //РїРѕРјРµС‰Р°РµРј СЌР»РµРјРµРЅС‚ РІ РѕС‡РµСЂРµРґСЊ
 {
 	if (spos == maxNum)
 	{
-		std::cout << "Очередь заполнена!" << std::endl;
+		std::cout << "РћС‡РµСЂРµРґСЊ Р·Р°РїРѕР»РЅРµРЅР°!" << std::endl;
 		return;
 	}
 
@@ -48,11 +48,11 @@ bool MyQueue::isEmpty() const
 	return rpos == spos;
 }
 
-int MyQueue::retrieve() //извлекаем элемент из очереди
+int MyQueue::retrieve() //РёР·РІР»РµРєР°РµРј СЌР»РµРјРµРЅС‚ РёР· РѕС‡РµСЂРµРґРё
 {
 	if (isEmpty())
 	{
-		std::cout << "Очередь пуста!" << std::endl;
+		std::cout << "РћС‡РµСЂРµРґСЊ РїСѓСЃС‚Р°!" << std::endl;
 		return -1;
 	}
 
@@ -60,21 +60,21 @@ int MyQueue::retrieve() //извлекаем элемент из очереди
 	return queue[rpos - 1];
 }
 
-int MyQueue::front() const //возвращает первый элемент очереди, не извлекая его
+int MyQueue::front() const //РІРѕР·РІСЂР°С‰Р°РµС‚ РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ РѕС‡РµСЂРµРґРё, РЅРµ РёР·РІР»РµРєР°СЏ РµРіРѕ
 {
 	if (isEmpty())
 	{
-		std::cout << "Очередь пуста!" << std::endl;
+		std::cout << "РћС‡РµСЂРµРґСЊ РїСѓСЃС‚Р°!" << std::endl;
 		return -1;
 	}
 
 	return queue[rpos];
 }
 
-static void printUntilEven(MyQueue& queue) //выводит элементы очереди до первого четного (но этот четный элемент не извлекаем)
+static void printUntilEven(MyQueue& queue) //РІС‹РІРѕРґРёС‚ СЌР»РµРјРµРЅС‚С‹ РѕС‡РµСЂРµРґРё РґРѕ РїРµСЂРІРѕРіРѕ С‡РµС‚РЅРѕРіРѕ (РЅРѕ СЌС‚РѕС‚ С‡РµС‚РЅС‹Р№ СЌР»РµРјРµРЅС‚ РЅРµ РёР·РІР»РµРєР°РµРј)
 {
 	bool isNoEven = true;
-	std::cout << "Вывод элементов очереди до первого четного:" << std::endl;
+	std::cout << "Р’С‹РІРѕРґ СЌР»РµРјРµРЅС‚РѕРІ РѕС‡РµСЂРµРґРё РґРѕ РїРµСЂРІРѕРіРѕ С‡РµС‚РЅРѕРіРѕ:" << std::endl;
 	while (queue.front() != -1)
 	{
 		int temp = queue.front();
@@ -90,13 +90,13 @@ static void printUntilEven(MyQueue& queue) //выводит элементы очереди до первого
 	}
 
 	if (isNoEven)
-		std::cout << "Элементы в очереди закончились, в ней нет четных элементов!" << std::endl;
+		std::cout << "Р­Р»РµРјРµРЅС‚С‹ РІ РѕС‡РµСЂРµРґРё Р·Р°РєРѕРЅС‡РёР»РёСЃСЊ, РІ РЅРµР№ РЅРµС‚ С‡РµС‚РЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ!" << std::endl;
 }
 
-static void printUntilEven(std::queue<int>& queue) //аналогичная функция, но для std::queue
+static void printUntilEven(std::queue<int>& queue) //Р°РЅР°Р»РѕРіРёС‡РЅР°СЏ С„СѓРЅРєС†РёСЏ, РЅРѕ РґР»СЏ std::queue
 {
 	bool isNoEven = true;
-	std::cout << "Вывод элементов очереди до первого четного:" << std::endl;
+	std::cout << "Р’С‹РІРѕРґ СЌР»РµРјРµРЅС‚РѕРІ РѕС‡РµСЂРµРґРё РґРѕ РїРµСЂРІРѕРіРѕ С‡РµС‚РЅРѕРіРѕ:" << std::endl;
 	while (!queue.empty())
 	{
 		int temp = queue.front();
@@ -112,7 +112,7 @@ static void printUntilEven(std::queue<int>& queue) //аналогичная функция, но для
 	}
 
 	if (isNoEven)
-		std::cout << std::endl << "Элементы в очереди закончились, в ней нет четных элементов!" << std::endl;
+		std::cout << std::endl << "Р­Р»РµРјРµРЅС‚С‹ РІ РѕС‡РµСЂРµРґРё Р·Р°РєРѕРЅС‡РёР»РёСЃСЊ, РІ РЅРµР№ РЅРµС‚ С‡РµС‚РЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ!" << std::endl;
 }
 
 int main()
@@ -122,15 +122,15 @@ int main()
 
 	int arr1[] = { 5, 1, 3, 5, 5, 5 }, arr2[] = { 5, 3, 2, 1, 4 };
 
-	//1-ое задание
-	std::cout << "1-ое задание:" << std::endl;
+	//1-РѕРµ Р·Р°РґР°РЅРёРµ
+	std::cout << "1-РѕРµ Р·Р°РґР°РЅРёРµ:" << std::endl;
 	
 	MyQueue myqueue(100);
     for (int i = 0; i < 6; i++)
         myqueue.store(arr1[i]);
     printUntilEven(myqueue);
 	
-	//очистка очереди
+	//РѕС‡РёСЃС‚РєР° РѕС‡РµСЂРµРґРё
 	while (!myqueue.isEmpty())
 		myqueue.retrieve();
 
@@ -138,14 +138,14 @@ int main()
 		myqueue.store(arr2[i]);
 	printUntilEven(myqueue);
 
-	//2-ое задание
-	std::cout << std::endl << "2-ое задание:" << std::endl;
+	//2-РѕРµ Р·Р°РґР°РЅРёРµ
+	std::cout << std::endl << "2-РѕРµ Р·Р°РґР°РЅРёРµ:" << std::endl;
 	std::queue<int> queue;
 	for (int i = 0; i < 6; i++)
 		queue.push(arr1[i]);
 	printUntilEven(queue);
 
-	//очистка очереди
+	//РѕС‡РёСЃС‚РєР° РѕС‡РµСЂРµРґРё
 	while (!queue.empty())
 		queue.pop();
 
