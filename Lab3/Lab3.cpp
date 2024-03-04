@@ -2,12 +2,15 @@
 #include <fstream>
 #include <set>
 #include <algorithm>
+#include <locale>
 #include <windows.h>
 
 using namespace std;
 
 int main() {
-    SetConsoleCP(1251);
+    //Чтобы корректно работало с кириллицей в файле
+    locale::global(locale("")); 
+    SetConsoleCP(1251); 
     SetConsoleOutputCP(1251);
 
     //Ввод имени файла
@@ -44,7 +47,7 @@ int main() {
         words.insert(word);
     }
 
-    // Вывод списка уникальных слов
+    //Вывод списка уникальных слов
     cout << "Список уникальных слов:" << endl;
     for (const string& word : words) {
         cout << word << endl;
