@@ -26,7 +26,7 @@ int main() {
     }
 
     //Множество для хранения уникальных слов
-    set<string> words;
+    multiset<string> words;
 
     //Считывание слов из файла
     string word;
@@ -47,9 +47,15 @@ int main() {
         words.insert(word);
     }
 
+    set<string> uniqueWords;
+    for (string word : words)
+    {
+        if (words.count(word) == 1) uniqueWords.insert(word);
+    }
+
     //Вывод списка уникальных слов
     cout << "Список уникальных слов:" << endl;
-    for (const string& word : words) {
+    for (const string& word : uniqueWords) {
         cout << word << endl;
     }
 
