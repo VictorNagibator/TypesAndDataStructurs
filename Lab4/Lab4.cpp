@@ -1,31 +1,31 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <set>
 #include <list>
 #include <windows.h>
 
 using namespace std;
 
-//стуктура, описывающая узел связанного списка
+//СЃС‚СѓРєС‚СѓСЂР°, РѕРїРёСЃС‹РІР°СЋС‰Р°СЏ СѓР·РµР» СЃРІСЏР·Р°РЅРЅРѕРіРѕ СЃРїРёСЃРєР°
 struct Node
 {
     int data;
     Node* next;
 };
 
-//класс, описывающий связанный список
+//РєР»Р°СЃСЃ, РѕРїРёСЃС‹РІР°СЋС‰РёР№ СЃРІСЏР·Р°РЅРЅС‹Р№ СЃРїРёСЃРѕРє
 class MyList
 {
 private:
-    Node* head = nullptr; //указатель на начало списка
+    Node* head = nullptr; //СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РЅР°С‡Р°Р»Рѕ СЃРїРёСЃРєР°
 
 public:
     MyList() = default;
     ~MyList();
 
-    void append(int data); //Метод для добавления элемента в конец списка
-    void remove(int data); //Метод для удаления элемента из списка
-    void print(); //Метод для вывода списка на экран
-    void leaveFirstOccurrences(); //Метод для удаления всех повторяющихся элементов, кроме первого вхождения
+    void append(int data); //РњРµС‚РѕРґ РґР»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ СЌР»РµРјРµРЅС‚Р° РІ РєРѕРЅРµС† СЃРїРёСЃРєР°
+    void remove(int data); //РњРµС‚РѕРґ РґР»СЏ СѓРґР°Р»РµРЅРёСЏ СЌР»РµРјРµРЅС‚Р° РёР· СЃРїРёСЃРєР°
+    void print(); //РњРµС‚РѕРґ РґР»СЏ РІС‹РІРѕРґР° СЃРїРёСЃРєР° РЅР° СЌРєСЂР°РЅ
+    void leaveFirstOccurrences(); //РњРµС‚РѕРґ РґР»СЏ СѓРґР°Р»РµРЅРёСЏ РІСЃРµС… РїРѕРІС‚РѕСЂСЏСЋС‰РёС…СЃСЏ СЌР»РµРјРµРЅС‚РѕРІ, РєСЂРѕРјРµ РїРµСЂРІРѕРіРѕ РІС…РѕР¶РґРµРЅРёСЏ
 };
 
 MyList::~MyList() {
@@ -110,8 +110,8 @@ int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
-    //1-ое задание
-    cout << "1-ое задание" << endl;
+    //1-РѕРµ Р·Р°РґР°РЅРёРµ
+    cout << "1-РѕРµ Р·Р°РґР°РЅРёРµ" << endl;
     MyList mylist1, mylist2, mylist3;
 
     mylist1.append(1);
@@ -122,20 +122,20 @@ int main() {
     mylist1.append(4);
     mylist1.append(5);
     mylist1.append(3);
-    cout << "Список 1 до изменений: ";
+    cout << "РЎРїРёСЃРѕРє 1 РґРѕ РёР·РјРµРЅРµРЅРёР№: ";
     mylist1.print();
     mylist1.leaveFirstOccurrences();
-    cout << "Список 1 после изменений: ";
+    cout << "РЎРїРёСЃРѕРє 1 РїРѕСЃР»Рµ РёР·РјРµРЅРµРЅРёР№: ";
     mylist1.print();
 
     mylist2.append(1);
     mylist2.append(2);
     mylist2.append(3);
     mylist2.append(4);
-    cout << "Список 2 до изменений: ";
+    cout << "РЎРїРёСЃРѕРє 2 РґРѕ РёР·РјРµРЅРµРЅРёР№: ";
     mylist2.print();
     mylist2.leaveFirstOccurrences();
-    cout << "Список 2 после изменений: ";
+    cout << "РЎРїРёСЃРѕРє 2 РїРѕСЃР»Рµ РёР·РјРµРЅРµРЅРёР№: ";
     mylist2.print();
 
     mylist3.append(4);
@@ -143,53 +143,53 @@ int main() {
     mylist3.append(4);
     mylist3.append(4);
     mylist3.append(4);
-    cout << "Список 3 до изменений: ";
+    cout << "РЎРїРёСЃРѕРє 3 РґРѕ РёР·РјРµРЅРµРЅРёР№: ";
     mylist3.print();
     mylist3.leaveFirstOccurrences();
-    cout << "Список 3 после изменений: ";
+    cout << "РЎРїРёСЃРѕРє 3 РїРѕСЃР»Рµ РёР·РјРµРЅРµРЅРёР№: ";
     mylist3.print();
     cout << endl;
 
-    //2-ое задание
-    cout << "2-ое задание" << endl;
+    //2-РѕРµ Р·Р°РґР°РЅРёРµ
+    cout << "2-РѕРµ Р·Р°РґР°РЅРёРµ" << endl;
     list<int> stlList1 = { 1, 2, 3, 2, 2, 4, 5, 3 },
               stlList2 = { 1, 2, 3, 4 },
               stlList3 = { 4, 4, 4, 4, 4 };
 
-    cout << "Список 1 до изменений: ";
+    cout << "РЎРїРёСЃРѕРє 1 РґРѕ РёР·РјРµРЅРµРЅРёР№: ";
     for (int i : stlList1) {
         cout << i << " ";
     }
     cout << endl;
     stlList1.sort();
     stlList1.unique();
-    cout << "Список 1 после изменений: ";
+    cout << "РЎРїРёСЃРѕРє 1 РїРѕСЃР»Рµ РёР·РјРµРЅРµРЅРёР№: ";
     for (int i : stlList1) {
 		cout << i << " ";
 	}
     cout << endl;
 
-    cout << "Список 2 до изменений: ";
+    cout << "РЎРїРёСЃРѕРє 2 РґРѕ РёР·РјРµРЅРµРЅРёР№: ";
     for (int i : stlList2) {
         cout << i << " ";
     }
     cout << endl;
     stlList2.sort();
     stlList2.unique();
-    cout << "Список 2 после изменений: ";
+    cout << "РЎРїРёСЃРѕРє 2 РїРѕСЃР»Рµ РёР·РјРµРЅРµРЅРёР№: ";
     for (int i : stlList2) {
         cout << i << " ";
     }
     cout << endl;
 
-    cout << "Список 3 до изменений: ";
+    cout << "РЎРїРёСЃРѕРє 3 РґРѕ РёР·РјРµРЅРµРЅРёР№: ";
     for (int i : stlList3) {
         cout << i << " ";
     }
     cout << endl;
     stlList3.sort();
     stlList3.unique();
-    cout << "Список 3 после изменений: ";
+    cout << "РЎРїРёСЃРѕРє 3 РїРѕСЃР»Рµ РёР·РјРµРЅРµРЅРёР№: ";
     for (int i : stlList3) {
         cout << i << " ";
     }
