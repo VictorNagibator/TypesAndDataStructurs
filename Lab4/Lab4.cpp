@@ -22,12 +22,13 @@ public:
     MyList() = default;
     ~MyList();
 
-    void append(int data); //Метод для добавления элемента в конец списка
-    void remove(int data); //Метод для удаления элемента из списка
-    void print(); //Метод для вывода списка на экран
-    void leaveFirstOccurrences(); //Метод для удаления всех повторяющихся элементов, кроме первого вхождения
+    void append(int data); //метод для добавления элемента в конец списка
+    void remove(int data); //метод для удаления элемента из списка
+    void print(); //метод для вывода списка на экран
+    void leaveFirstOccurrences(); //метод для удаления всех повторяющихся элементов, кроме первого вхождения
 };
 
+//в деструкторе удаляем все узлы списка
 MyList::~MyList() {
     Node* current = head;
     while (current != nullptr) {
@@ -38,10 +39,12 @@ MyList::~MyList() {
 }
 
 void MyList::append(int data) {
+    //если список пуст, создаем первый элемент
     if (head == nullptr) {
         head = new Node();
         head->data = data;
     }
+    //иначе добавляем элемент в конец списка
     else {
         Node* current = head;
         while (current->next != nullptr) {
@@ -57,6 +60,7 @@ void MyList::remove(int data) {
         return;
     }
 
+    //если удаляемый элемент - первый в списке, то удаляем его и меняем указатель на начало списка
     if (head->data == data) {
         Node* temp = head;
         head = head->next;
@@ -65,6 +69,7 @@ void MyList::remove(int data) {
     }
 
     Node* current = head;
+    //проходим по списку, пока не найдем элемент для удаления
     while (current->next != nullptr) {
         if (current->next->data == data) {
             Node* temp = current->next;
@@ -92,12 +97,15 @@ void MyList::leaveFirstOccurrences() {
     Node* prev = nullptr;
     Node* curr = head;
 
+    //проходим по списку, удаляем повторяющиеся элементы
     while (curr) {
+        //если текущий элемент не встречался ранее, добавляем его в множество
         if (seen.find(curr->data) == seen.end()) {
             seen.insert(curr->data);
             prev = curr;
             curr = curr->next;
         }
+        //если текущий элемент встречался ранее, удаляем его из списка
         else {
             prev->next = curr->next;
             delete curr;
