@@ -17,7 +17,7 @@ class MyList
 {
 private:
     Node* head = nullptr; //указатель на начало списка
-
+    Node* last = nullptr; //указатель на текущий элемент списка
 public:
     MyList() = default;
     ~MyList();
@@ -41,29 +41,26 @@ MyList::~MyList() {
 void MyList::append(int data) {
     //если список пуст, создаем первый элемент
     if (head == nullptr) {
-        head = new Node();
+        last = head = new Node();
         head->data = data;
     }
     //иначе добавляем элемент в конец списка
     else {
-        Node* current = head;
-        while (current->next != nullptr) {
-            current = current->next;
-        }
-        current->next = new Node();
-        current->next->data = data;
+        last->next = new Node();
+		last = last->next;
+		last->data = data;
     }
 }
 
 void MyList::remove(int data) {
-    if (head == nullptr) {
-        return;
-    }
+    if (head == nullptr) return;
 
-    //если удаляемый элемент - первый в списке, то удаляем его и меняем указатель на начало списка
+    //если удаляемый элемент - первый в списке
     if (head->data == data) {
         Node* temp = head;
         head = head->next;
+        //обновляем last, если удаляется последний элемент
+        if (temp == last) last = nullptr;
         delete temp;
         return;
     }
@@ -74,6 +71,8 @@ void MyList::remove(int data) {
         if (current->next->data == data) {
             Node* temp = current->next;
             current->next = current->next->next;
+            //обновляем last, если удаляется последний элемент
+            if (temp == last) last = current;
             delete temp;
             return;
         }
@@ -108,9 +107,11 @@ void MyList::leaveFirstOccurrences() {
         //если текущий элемент встречался ранее, удаляем его из списка
         else {
             prev->next = curr->next;
+            //обновляем last, если удаляется последний элемент
+            if (curr == last) last = prev;
             delete curr;
             curr = prev->next;
-        } 
+        }
     }
 }
 
