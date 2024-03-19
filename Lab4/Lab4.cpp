@@ -20,6 +20,7 @@ private:
     Node* last = nullptr; //указатель на текущий элемент списка
 public:
     MyList() = default;
+    MyList(int data[], int size);
     ~MyList();
 
     void append(int data); //метод для добавления элемента в конец списка
@@ -27,6 +28,13 @@ public:
     void print(); //метод для вывода списка на экран
     void leaveFirstOccurrences(); //метод для удаления всех повторяющихся элементов, кроме первого вхождения
 };
+
+//конструктор, принимающий массив данных и создающий список из них
+MyList::MyList(int data[], int size) {
+    for (int i = 0; i < size; i++) {
+		append(data[i]);
+	}
+}
 
 //в деструкторе удаляем все узлы списка
 MyList::~MyList() {
@@ -121,37 +129,25 @@ int main() {
 
     //1-ое задание
     cout << "1-ое задание" << endl;
-    MyList mylist1, mylist2, mylist3;
+    int array1[] = { 1, 2, 3, 2, 2, 4, 5, 3 },
+		array2[] = { 1, 2, 3, 4 },
+		array3[] = { 4, 4, 4, 4, 4 };
+    MyList mylist1(array1, 8), 
+           mylist2(array2, 4), 
+           mylist3(array3, 5);
 
-    mylist1.append(1);
-    mylist1.append(2);
-    mylist1.append(3);
-    mylist1.append(2);
-    mylist1.append(2);
-    mylist1.append(4);
-    mylist1.append(5);
-    mylist1.append(3);
     cout << "Список 1 до изменений: ";
     mylist1.print();
     mylist1.leaveFirstOccurrences();
     cout << "Список 1 после изменений: ";
     mylist1.print();
 
-    mylist2.append(1);
-    mylist2.append(2);
-    mylist2.append(3);
-    mylist2.append(4);
     cout << "Список 2 до изменений: ";
     mylist2.print();
     mylist2.leaveFirstOccurrences();
     cout << "Список 2 после изменений: ";
     mylist2.print();
 
-    mylist3.append(4);
-    mylist3.append(4);
-    mylist3.append(4);
-    mylist3.append(4);
-    mylist3.append(4);
     cout << "Список 3 до изменений: ";
     mylist3.print();
     mylist3.leaveFirstOccurrences();
