@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lab3", "Lab3\Lab3.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lab4", "Lab4\Lab4.vcxproj", "{CFB5421A-5D49-4040-8AB5-0103ED5F1440}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CompTask_BinaryTrees", "CompTask_BinaryTrees\CompTask_BinaryTrees.vcxproj", "{376E0BBD-2C63-4EB7-BED8-C07C2836ED58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{CFB5421A-5D49-4040-8AB5-0103ED5F1440}.Release|x64.Build.0 = Release|x64
 		{CFB5421A-5D49-4040-8AB5-0103ED5F1440}.Release|x86.ActiveCfg = Release|Win32
 		{CFB5421A-5D49-4040-8AB5-0103ED5F1440}.Release|x86.Build.0 = Release|Win32
+		{376E0BBD-2C63-4EB7-BED8-C07C2836ED58}.Debug|x64.ActiveCfg = Debug|x64
+		{376E0BBD-2C63-4EB7-BED8-C07C2836ED58}.Debug|x64.Build.0 = Debug|x64
+		{376E0BBD-2C63-4EB7-BED8-C07C2836ED58}.Debug|x86.ActiveCfg = Debug|Win32
+		{376E0BBD-2C63-4EB7-BED8-C07C2836ED58}.Debug|x86.Build.0 = Debug|Win32
+		{376E0BBD-2C63-4EB7-BED8-C07C2836ED58}.Release|x64.ActiveCfg = Release|x64
+		{376E0BBD-2C63-4EB7-BED8-C07C2836ED58}.Release|x64.Build.0 = Release|x64
+		{376E0BBD-2C63-4EB7-BED8-C07C2836ED58}.Release|x86.ActiveCfg = Release|Win32
+		{376E0BBD-2C63-4EB7-BED8-C07C2836ED58}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
