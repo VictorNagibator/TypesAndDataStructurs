@@ -10,8 +10,6 @@ using namespace std;
 //Класс для представления бинарного дерева
 class BinaryTree {
 private:
-    const int distance = 5; //расстояние между узлами дерева
-
     //Структура, описывающая узел дерева
     struct Node {
         int data;
@@ -19,7 +17,8 @@ private:
         Node* right;
     };
 
-    Node* root;
+    //Узел корень дерева
+    Node* root; 
 
     //Рекурсивный метод для добавления элемента в дерево
     Node* insert(Node* node, int data) {
@@ -29,6 +28,7 @@ private:
             node->data = data;
             node->left = node->right = nullptr;
         }
+
         if (data < node->data)
             node->left = insert(node->left, data);
         else if (data > node->data)
@@ -46,17 +46,17 @@ private:
         fillSet(node->right, s);
     }
 
-    //печать бинарного дерева в виде дерева повернутого на -90 градусов
-    void printTree(Node* node, int data) {
+    //Печать бинарного дерева в виде дерева повернутого на -90 градусов
+    void printTree(Node* node, int level) {
         if (node == nullptr)
             return;
 
-        printTree(node->right, data + 1);
-        for (int i = 0; i < data; ++i)
+        printTree(node->right, level + 1);
+        for (int i = 0; i < level; ++i)
             cout << "\t";
         cout << node->data << endl;
 
-        printTree(node->left, data + 1);
+        printTree(node->left, level + 1);
     }
 
 public:
@@ -86,7 +86,7 @@ public:
         return true;
     }
 
-    //печать бинарного дерева в виде дерева повернутого на -90 градусов
+    //Печать бинарного дерева в виде дерева повернутого на -90 градусов
     void print() {
         printTree(root, 0);
     }
@@ -114,27 +114,27 @@ int main() {
     ofstream outputFile("output.dat");
 
     if (!inputFile.is_open() || !outputFile.is_open()) {
-        cout << "Error: Unable to open file." << endl;
+        cout << "Ошибка: не получилось открыть файлы!" << endl;
         return 1;
     }
 
     BinaryTree tree1, tree2;
-    int val;
+    int value;
     string line;
 
     //Считываем первую строку из файла и добавляем значения в первое дерево
     if (getline(inputFile, line)) {
         istringstream iss(line);
-        while (iss >> val) {
-            tree1.insert(val);
+        while (iss >> value) {
+            tree1.insert(value);
         }
     }
 
     //Считываем вторую строку из файла и добавляем значения во второе дерево
     if (getline(inputFile, line)) {
         istringstream iss(line);
-        while (iss >> val) {
-            tree2.insert(val);
+        while (iss >> value) {
+            tree2.insert(value);
         }
     }
 
