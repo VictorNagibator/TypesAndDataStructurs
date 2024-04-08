@@ -37,13 +37,13 @@ private:
     }
 
     //Вспомогательная рекурсивная функция для заполнения множества значениями узлов дерева
-    void fillSet(Node* node, unordered_set<int>& s) {
+    void fillSet(Node* node, unordered_set<int>& set) {
         if (node == nullptr)
             return;
 
-        s.insert(node->data);
-        fillSet(node->left, s);
-        fillSet(node->right, s);
+        set.insert(node->data);
+        fillSet(node->left, set);
+        fillSet(node->right, set);
     }
 
     //Печать бинарного дерева в виде дерева повернутого на -90 градусов
@@ -124,6 +124,7 @@ int main() {
 
     //Считываем первую строку из файла и добавляем значения в первое дерево
     if (getline(inputFile, line)) {
+        //Создаем строковый поток из строки line
         istringstream iss(line);
         while (iss >> value) {
             tree1.insert(value);
