@@ -47,16 +47,16 @@ private:
     }
 
     //Печать бинарного дерева в виде дерева повернутого на -90 градусов
-    void printTree(Node* node, int level) {
+    void printTree(Node* node, int level, ostream& output) {
         if (node == nullptr)
             return;
 
-        printTree(node->right, level + 1);
+        printTree(node->right, level + 1, output);
         for (int i = 0; i < level; ++i)
-            cout << "\t";
-        cout << node->data << endl;
+            output << "\t";
+        output << node->data << endl;
 
-        printTree(node->left, level + 1);
+        printTree(node->left, level + 1, output);
     }
 
 public:
@@ -87,8 +87,8 @@ public:
     }
 
     //Печать бинарного дерева в виде дерева повернутого на -90 градусов
-    void print() {
-        printTree(root, 0);
+    void print(ostream& output = cout) {
+        printTree(root, 0, output);
     }
 
     //Деструктор для освобождения памяти, выделенной под дерево
@@ -138,12 +138,19 @@ int main() {
         }
     }
 
-    //Выводим деревья в табличной форме
+    //Выводим деревья в табличной форме в консоль
     cout << "Первое дерево:" << endl;
     tree1.print();
     cout << endl << "Второе дерево:" << endl;
     tree2.print();
     cout << endl;
+
+    //Записываем деревья в файл
+    outputFile << "Первое дерево:" << endl;
+    tree1.print(outputFile);
+    outputFile << endl << "Второе дерево:" << endl;
+    tree2.print(outputFile);
+    outputFile << endl;
 
     //Проверяем информационную эквивалентность деревьев
     bool equivalent = tree1.areEquivalent(tree2);
