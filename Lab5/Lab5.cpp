@@ -94,7 +94,7 @@ int main() {
     int start, end;
     cout << "Введите начальную и конечную вершины: ";
     cin >> start >> end;
-    if (start > numVertices || start <= 0 || end >= numVertices || end <= 0) {
+    if (start > numVertices || start <= 0 || end > numVertices || end <= 0) {
         cout << "Некорректные вершины!" << endl;
         return 1;
     }
