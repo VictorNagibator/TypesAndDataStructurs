@@ -111,22 +111,29 @@ int main() {
         return 1;
     }
 
-    cout << "Кратчайший путь между вершинами " << start << " и " << end << ": ";
-    outFile << "Кратчайший путь между вершинами " << start << " и " << end << ": ";
-    for (int v : shortestPath) {
-        cout << v + 1;
-        outFile << v + 1;
-        if (v != shortestPath.back()) {
-            cout << " -> ";
-            outFile << " -> ";
+    //Если между вершинами найден путь, то выводим его
+    if (shortestPathLength != INF) {
+        cout << "Кратчайший путь между вершинами " << start << " и " << end << ": ";
+        outFile << "Кратчайший путь между вершинами " << start << " и " << end << ": ";
+        for (int v : shortestPath) {
+            cout << v + 1;
+            outFile << v + 1;
+            if (v != shortestPath.back()) {
+                cout << " -> ";
+                outFile << " -> ";
+            }
         }
+        cout << endl;
+        outFile << endl;
+
+        cout << "Длина кратчайшего пути: " << shortestPathLength << endl;
+        outFile << "Длина кратчайшего пути: " << shortestPathLength << endl;
+    } 
+    else {
+        cout << "Между вершинами " << start << " и " << end << " нет пути!" << endl;
+        outFile << "Между вершинами " << start << " и " << end << " нет пути!" << endl;
     }
-    cout << endl;
-    outFile << endl;
-
-    cout << "Длина кратчайшего пути: " << shortestPathLength << endl;
-    outFile << "Длина кратчайшего пути: " << shortestPathLength << endl;
-
+    
     outFile.close();
 
     return 0; 
